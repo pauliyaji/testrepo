@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hiding or Showing Objects</title>
+	<script type="text/javascript">
+		function ShowHide() {
+			if(!document.getElementById) return;
+			var head1 = document.getElementById("head1");
+			var head2 = document.getElementById("head2");
+			var showhead1 = document.form1.head1.checked;
+			var showhead2 = document.form2.head2.checked;
+			head1.style.visibility = (showhead1) ? "visible" : "hidden";
+			head2.style.visibility = (showhead2) ? "visible" : "hidden";
+		}
+		function ChangeTitle() {
+			if(!document.getElementById) return;
+			var newtitle = document.form2.newtitle.value;
+			var head3 = document.getElementById("head3");
+			head3.firstChild.nodeValue = newtitle;
+		}
+		</script>
+</head>
+<body>
+	<h1 id="head1">This is the first heading</h1>
+	<h2 id="head2">This is the second heading</h2>
+	<p>Using the W3C DOM, you can choose whether to show or hide the headings on this page using the checkboxes below.</p>
+	<form action="" name="form1">
+	<div>
+	<input type="checkbox" name="head1" onclick="ShowHide();" value="checked" />
+		<span style="font-weight:bold">Show first heading</span><br>
+
+	<input type="checkbox" name="head2" onclick="ShowHide();" value="checked" />
+	<span style="font-weight:bold">Show second heading</span><br>
+	</div>
+	</form>
+	<hr />
+	<h1 id="head3">Dynamic Text in JavaScript</h1>
+	<p>Using the w3c DOM, you can dynamically change the heading at the top of this page. Enter a new Title and click the Change! button. </p>
+	<form action="" name="form2">
+		<div>
+			<input type="text" name="newtitle" size="40" />
+			<input type="button" value="Change!" onclick="ChangeTitle();" />
+		</div>
+	</form>
+</body>
+</html>
